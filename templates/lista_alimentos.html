@@ -1,0 +1,29 @@
+{% extends "template.html" %}
+{% block conteudo %}
+    <div class="container">
+        <h1 class="page-header">Lista de Alimentos</h1>
+        <a class="btn btn-outline-success" href="{{url_for('novo_alimento')}}">Novo Alimento</a>
+            <table class="table table-striped table-responsive table-bordered">
+                <thead class="table-success">
+                    <tr>
+                        <th scope="col">ID do Alimento</th>
+                        <th scope="col">Descrição</th>
+                        <th scope="col">Categoria</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+            <tbody>
+                {% for alimento in alimentos %}
+                    <tr>
+                        <td>{{alimento._ID_Alimento}}</td>
+                        <td>{{alimento._Descricao}}</td>
+                        <td>{{alimento._Categoria}}</td>
+                        <td><a class="btn btn-outline-dark" href="{{url_for('editar', ID_Alimento=alimento._ID_Alimento)}}">Editar</a></td>
+                        <td><a class="btn btn-outline-danger" href="{{url_for('deletar', ID_Alimento=alimento._ID_Alimento)}}">Deletar</a></td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+    </div>
+{% endblock %}

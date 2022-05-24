@@ -1,0 +1,14 @@
+{% extends "template.html" %}
+{% block conteudo %}
+      <form action="/atualizar_cardapios" method="post">
+        <fieldset>
+          <input type="hidden" name="ID_Cardapio" value="{{cardapio._ID_Cardapio}}">
+          <div class="form-group">
+            <label for="Descricao">Nome</label>
+            <input type="text" id="Descricao" name="Descricao" class="form-control" value="{{cardapio._Descricao}}">
+          </div>
+          <button type="submit" class="btn btn-outline-success btn-salvar">Salvar</button>
+          <a class="btn btn-outline-danger" href="{{url_for('lista_cardapios')}}">Voltar</a>
+        </fieldset>
+      </form>
+{% endblock %}

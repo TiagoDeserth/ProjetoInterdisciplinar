@@ -1,0 +1,21 @@
+{% extends "template.html" %}
+{% block conteudo %}
+      <form action="/criar" method="post">
+        <fieldset>
+          <div class="form-group">
+            <label for="Descricao">Descrição</label>
+            <input type="text" id="Descricao" name="Descricao" class="form-control">
+          </div>
+           <div class="form-group">
+               <label for="Categoria">Categoria</label>
+               <select class="form-select" id="Categoria" name="Categoria">
+               {% for categoria in categorias %}
+                   <option value="{{categoria._ID_Categoria}}">{{categoria._Nome_Categoria}}</option>
+               {% endfor %}
+               </select>
+           </div>
+          <button type="submit" class="btn btn-outline-success btn-salvar">Salvar</button>
+          <a class="btn btn-outline-danger" href="{{url_for('lista_alimentos')}}">Voltar</a>
+        </fieldset>
+      </form>
+{% endblock %}

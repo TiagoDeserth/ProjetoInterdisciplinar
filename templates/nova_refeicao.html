@@ -1,0 +1,13 @@
+{% extends "template.html" %}
+{% block conteudo %}
+      <form action="/criar_refeicao" method="post">
+        <fieldset>
+          <div class="form-group">
+            <label for="Quantidade_por_pratos">Quantidade por pratos</label>
+            <input type="text" id="Quantidade_por_pratos" name="Quantidade_por_pratos" class="form-control">
+          </div>
+          <button type="submit" class="btn btn-outline-success btn-salvar">Salvar</button>
+          <a class="btn btn-outline-danger" href="{{url_for('lista_refeicoes')}}">Voltar</a>
+        </fieldset>
+      </form>
+{% endblock %}
